@@ -1,0 +1,322 @@
+market:
+  non_commercial:
+    profile:
+      peak_weight:
+        function: "parse_peak_quantity_by_time_vectors"
+        inputs:
+          - "peak_categories"
+          - "peak_weight"
+      peak_categories: "peak_categories"
+      peak_tariff:
+        function: "parse_peak_quantity_by_time_vectors"
+        inputs:
+          - "peak_categories"
+          - "peak_tariff"
+      sell_price: "sell_price"
+      buy_price: "buy_price"
+      consumption_price: "consumption_price"
+      reward_price: "reward_price"
+  commercial:
+    profile:
+      energy_weight: "energy_weight"
+      peak_categories: "peak_categories"
+      peak_weight:
+        function: "parse_peak_quantity_by_time_vectors"
+        inputs:
+          - "peak_categories"
+          - "peak_weight"
+      peak_tariff:
+        function: "parse_peak_quantity_by_time_vectors"
+        inputs:
+          - "peak_categories"
+          - "peak_tariff_COM"
+      sell_price: "sell_price"
+      buy_price: "buy_price_COM"
+      consumption_price: "consumption_price"
+      reward_price: "reward_price"
+users:
+  user4:
+    batt:
+      CAPEX_lin: 400
+      max_C_ch: 1.0
+      max_capacity: 15
+      lifetime_y: 15
+      min_SOC: 0.2
+      OEM_lin: 5
+      eta: 0.92
+      max_SOC: 1.0
+      corr_asset: "conv"
+      max_C_dch: 1.0
+      type: "battery"
+    market_set:
+      market_type: "non_commercial"
+      type: "market"
+    load:
+      profile:
+        load: "load_user4"
+      type: "load"
+    PV:
+      profile:
+        ren_pu: "pv"
+      OEM_lin: 30
+      CAPEX_lin: 1500
+      max_capacity: 3
+      type: "renewable"
+      lifetime_y: 25
+    conv:
+      OEM_lin: 2
+      CAPEX_lin: 200
+      max_dch: 1.0
+      max_capacity: 15
+      corr_asset: "batt"
+      eta: 1.0
+      type: "converter"
+      lifetime_y: 10
+      min_ch: 0.1
+  user7:
+    batt:
+      CAPEX_lin: 400
+      max_C_ch: 1.0
+      max_capacity: 15
+      lifetime_y: 15
+      min_SOC: 0.2
+      OEM_lin: 5
+      eta: 0.92
+      max_SOC: 1.0
+      corr_asset: "conv"
+      max_C_dch: 1.0
+      type: "battery"
+    market_set:
+      market_type: "non_commercial"
+      type: "market"
+    load:
+      profile:
+        load: "load_user7"
+      type: "load"
+    PV:
+      profile:
+        ren_pu: "pv"
+      OEM_lin: 30
+      CAPEX_lin: 1500
+      max_capacity: 3
+      type: "renewable"
+      lifetime_y: 25
+    conv:
+      OEM_lin: 2
+      CAPEX_lin: 200
+      max_dch: 1.0
+      max_capacity: 15
+      corr_asset: "batt"
+      eta: 1.0
+      type: "converter"
+      lifetime_y: 10
+      min_ch: 0.1
+  user2:
+    batt:
+      CAPEX_lin: 400
+      max_C_ch: 1.0
+      max_capacity: 15
+      lifetime_y: 15
+      min_SOC: 0.2
+      OEM_lin: 5
+      eta: 0.92
+      max_SOC: 1.0
+      corr_asset: "conv"
+      max_C_dch: 1.0
+      type: "battery"
+    market_set:
+      market_type: "non_commercial"
+      type: "market"
+    load:
+      profile:
+        load: "load_user2"
+      type: "load"
+    PV:
+      profile:
+        ren_pu: "pv"
+      OEM_lin: 30
+      CAPEX_lin: 1500
+      max_capacity: 3
+      type: "renewable"
+      lifetime_y: 25
+    conv:
+      OEM_lin: 2
+      CAPEX_lin: 200
+      max_dch: 1.0
+      max_capacity: 15
+      corr_asset: "batt"
+      eta: 1.0
+      type: "converter"
+      lifetime_y: 10
+      min_ch: 0.1
+  user1:
+    batt:
+      CAPEX_lin: 400
+      max_C_ch: 1.0
+      max_capacity: 15
+      lifetime_y: 15
+      min_SOC: 0.2
+      OEM_lin: 5
+      eta: 0.92
+      max_SOC: 1.0
+      corr_asset: "conv"
+      max_C_dch: 1.0
+      type: "battery"
+    market_set:
+      market_type: "non_commercial"
+      type: "market"
+    load:
+      profile:
+        load: "load_user1"
+      type: "load"
+    PV:
+      profile:
+        ren_pu: "pv"
+      OEM_lin: 30
+      CAPEX_lin: 1500
+      max_capacity: 3
+      type: "renewable"
+      lifetime_y: 25
+    conv:
+      OEM_lin: 2
+      CAPEX_lin: 200
+      max_dch: 1.0
+      max_capacity: 15
+      corr_asset: "batt"
+      eta: 1.0
+      type: "converter"
+      lifetime_y: 10
+      min_ch: 0.1
+  user5:
+    batt:
+      CAPEX_lin: 400
+      max_C_ch: 1.0
+      max_capacity: 15
+      lifetime_y: 15
+      min_SOC: 0.2
+      OEM_lin: 5
+      eta: 0.92
+      max_SOC: 1.0
+      corr_asset: "conv"
+      max_C_dch: 1.0
+      type: "battery"
+    market_set:
+      market_type: "non_commercial"
+      type: "market"
+    load:
+      profile:
+        load: "load_user5"
+      type: "load"
+    PV:
+      profile:
+        ren_pu: "pv"
+      OEM_lin: 30
+      CAPEX_lin: 1500
+      max_capacity: 3
+      type: "renewable"
+      lifetime_y: 25
+    conv:
+      OEM_lin: 2
+      CAPEX_lin: 200
+      max_dch: 1.0
+      max_capacity: 15
+      corr_asset: "batt"
+      eta: 1.0
+      type: "converter"
+      lifetime_y: 10
+      min_ch: 0.1
+  user3:
+    batt:
+      CAPEX_lin: 400
+      max_C_ch: 1.0
+      max_capacity: 15
+      lifetime_y: 15
+      min_SOC: 0.2
+      OEM_lin: 5
+      eta: 0.92
+      max_SOC: 1.0
+      corr_asset: "conv"
+      max_C_dch: 1.0
+      type: "battery"
+    market_set:
+      market_type: "non_commercial"
+      type: "market"
+    load:
+      profile:
+        load: "load_user3"
+      type: "load"
+    PV:
+      profile:
+        ren_pu: "pv"
+      OEM_lin: 30
+      CAPEX_lin: 1500
+      max_capacity: 3
+      type: "renewable"
+      lifetime_y: 25
+    conv:
+      OEM_lin: 2
+      CAPEX_lin: 200
+      max_dch: 1.0
+      max_capacity: 15
+      corr_asset: "batt"
+      eta: 1.0
+      type: "converter"
+      lifetime_y: 10
+      min_ch: 0.1
+  user6:
+    batt:
+      CAPEX_lin: 400
+      max_C_ch: 1.0
+      max_capacity: 15
+      lifetime_y: 15
+      min_SOC: 0.2
+      OEM_lin: 5
+      eta: 0.92
+      max_SOC: 1.0
+      corr_asset: "conv"
+      max_C_dch: 1.0
+      type: "battery"
+    market_set:
+      market_type: "non_commercial"
+      type: "market"
+    load:
+      profile:
+        load: "load_user6"
+      type: "load"
+    PV:
+      profile:
+        ren_pu: "pv"
+      OEM_lin: 30
+      CAPEX_lin: 1500
+      max_capacity: 3
+      type: "renewable"
+      lifetime_y: 25
+    conv:
+      OEM_lin: 2
+      CAPEX_lin: 200
+      max_dch: 1.0
+      max_capacity: 15
+      corr_asset: "batt"
+      eta: 1.0
+      type: "converter"
+      lifetime_y: 10
+      min_ch: 0.1
+general:
+  profile:
+    time_res: "time_res"
+    energy_weight: "energy_weight"
+  user_set:
+    - "user1"
+    - "user2"
+    - "user3"
+    - "user4"
+    - "user5"
+    - "user6"
+    - "user7"
+  d_rate: 0.03
+  optional_datasets:
+    - "input_resource.csv"
+    - "market_data.csv"
+  init_step: 1
+  final_step: 672
+  project_lifetime: 20
