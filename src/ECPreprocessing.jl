@@ -25,11 +25,59 @@ end_users_residential = 3
 start_users_other_uses = 4
 end_users_other_uses = 9
 residential_yearly = fill(2700,end_users_residential)
+residential_yearly_distribution = [0.098,	0.083,0.087,	0.078,	0.075	,0.073,	0.079,	0.078,	0.074	,0.084,	0.088	,0.103]
 other_uses_yearly = fill(3400,end_users_other_uses-start_users_other_uses+1)
 consumption_yearly = vcat(residential_yearly,other_uses_yearly)
 
 # definition of residential and commercial compontens
 residential_components = Dict(
+    "market_set" => Dict(
+        "market_type" => "non_commercial",
+        "type" => "market"
+    ),
+    "PV" => Dict(
+        "type" => "renewable",
+        "CAPEX_lin" => 1500,
+        "OEM_lin" => 30,
+        "lifetime_y" => 25,
+        "max_capacity" => 6,
+        "profile" => Dict(
+            "ren_pu" => "pv"
+        )
+    ),
+    "batt" => Dict(
+        "type" => "battery",
+        "CAPEX_lin" => 400,
+        "OEM_lin" => 5,
+        "lifetime_y" => 15,
+        "eta" => 0.92,
+        "max_SOC" => 1.0,
+        "min_SOC" => 0.2,
+        "max_capacity" => 15,
+        "max_C_dch" => 1.0,
+        "max_C_ch" => 1.0,
+        "corr_asset" => "conv"
+    ),
+    "conv" => Dict(
+        "type" => "converter",
+        "CAPEX_lin" => 200,
+        "OEM_lin" => 2,
+        "lifetime_y" => 10,
+        "eta" => 1.0,
+        "max_dch" => 1.0,
+        "min_ch" => 0.1,
+        "max_capacity" => 15,
+        "corr_asset" => "batt"
+    ),
+    "load" => Dict(
+        "type" => "load",
+        "profile" => Dict(
+            "load" => "load_user"
+        )
+    )
+)
+
+non_residential_components = Dict(
     "market_set" => Dict(
         "market_type" => "non_commercial",
         "type" => "market"
@@ -75,6 +123,7 @@ residential_components = Dict(
         )
     )
 )
+
 commercial_components = Dict(
     "market_set" => Dict(
         "market_type" => "commercial",
@@ -161,7 +210,10 @@ for i = start_users_residential: end_users_other_uses
     label = "load_user$i"
     if i < start_users_other_uses
         code = Symbol("PDMM")
-        user_residential_monthly = fill(consumption_yearly[i]/12,final_step)
+        yearly_consumption_vector = fill(consumption_yearly[i],final_step)
+        segments_user = [yearly_consumption_vector[Int(j):Int(j+(final_step/12-1))] for j in 1:(final_step/12):final_step]
+        user_residential_monthly = [segment .* number for (segment, number) in zip(segments_user, residential_yearly_distribution)]
+        user_residential_monthly = reduce(vcat, user_residential_monthly)
         user_load_y= user_residential_monthly.*GSE_profiles[:,code]
         input_dataframe[!,label] = user_load_y
     end
