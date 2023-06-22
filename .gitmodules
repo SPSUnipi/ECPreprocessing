@@ -1,0 +1,3 @@
+[submodule "pypsa-distribution"]
+	path = pypsa-distribution
+	url = https://github.com/pypsa-meets-earth/pypsa-distribution
