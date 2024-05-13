@@ -60,7 +60,7 @@ users:
         ren_pu: "pv"
       OEM_lin: 30
       CAPEX_lin: 1500
-      max_capacity: 3
+      max_capacity: 6
       type: "renewable"
       lifetime_y: 25
     conv:
@@ -98,7 +98,83 @@ users:
         ren_pu: "pv"
       OEM_lin: 30
       CAPEX_lin: 1500
-      max_capacity: 3
+      max_capacity: 6
+      type: "renewable"
+      lifetime_y: 25
+    conv:
+      OEM_lin: 2
+      CAPEX_lin: 200
+      max_dch: 1.0
+      max_capacity: 15
+      corr_asset: "batt"
+      eta: 1.0
+      type: "converter"
+      lifetime_y: 10
+      min_ch: 0.1
+  user8:
+    batt:
+      CAPEX_lin: 400
+      max_C_ch: 1.0
+      max_capacity: 15
+      lifetime_y: 15
+      min_SOC: 0.2
+      OEM_lin: 5
+      eta: 0.92
+      max_SOC: 1.0
+      corr_asset: "conv"
+      max_C_dch: 1.0
+      type: "battery"
+    market_set:
+      market_type: "non_commercial"
+      type: "market"
+    load:
+      profile:
+        load: "load_user8"
+      type: "load"
+    PV:
+      profile:
+        ren_pu: "pv"
+      OEM_lin: 30
+      CAPEX_lin: 1500
+      max_capacity: 6
+      type: "renewable"
+      lifetime_y: 25
+    conv:
+      OEM_lin: 2
+      CAPEX_lin: 200
+      max_dch: 1.0
+      max_capacity: 15
+      corr_asset: "batt"
+      eta: 1.0
+      type: "converter"
+      lifetime_y: 10
+      min_ch: 0.1
+  user9:
+    batt:
+      CAPEX_lin: 400
+      max_C_ch: 1.0
+      max_capacity: 15
+      lifetime_y: 15
+      min_SOC: 0.2
+      OEM_lin: 5
+      eta: 0.92
+      max_SOC: 1.0
+      corr_asset: "conv"
+      max_C_dch: 1.0
+      type: "battery"
+    market_set:
+      market_type: "non_commercial"
+      type: "market"
+    load:
+      profile:
+        load: "load_user9"
+      type: "load"
+    PV:
+      profile:
+        ren_pu: "pv"
+      OEM_lin: 30
+      CAPEX_lin: 1500
+      max_capacity: 6
       type: "renewable"
       lifetime_y: 25
     conv:
@@ -136,7 +212,7 @@ users:
         ren_pu: "pv"
       OEM_lin: 30
       CAPEX_lin: 1500
-      max_capacity: 3
+      max_capacity: 6
       type: "renewable"
       lifetime_y: 25
     conv:
@@ -174,7 +250,7 @@ users:
         ren_pu: "pv"
       OEM_lin: 30
       CAPEX_lin: 1500
-      max_capacity: 3
+      max_capacity: 6
       type: "renewable"
       lifetime_y: 25
     conv:
@@ -212,7 +288,7 @@ users:
         ren_pu: "pv"
       OEM_lin: 30
       CAPEX_lin: 1500
-      max_capacity: 3
+      max_capacity: 6
       type: "renewable"
       lifetime_y: 25
     conv:
@@ -250,7 +326,7 @@ users:
         ren_pu: "pv"
       OEM_lin: 30
       CAPEX_lin: 1500
-      max_capacity: 3
+      max_capacity: 6
       type: "renewable"
       lifetime_y: 25
     conv:
@@ -288,7 +364,7 @@ users:
         ren_pu: "pv"
       OEM_lin: 30
       CAPEX_lin: 1500
-      max_capacity: 3
+      max_capacity: 6
       type: "renewable"
       lifetime_y: 25
     conv:
@@ -313,6 +389,8 @@ general:
     - "user5"
     - "user6"
     - "user7"
+    - "user8"
+    - "user9"
   d_rate: 0.03
   optional_datasets:
     - "input_resource.csv"

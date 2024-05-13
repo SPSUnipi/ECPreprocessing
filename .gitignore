@@ -25,5 +25,4 @@ Manifest.toml
 
 # Ignora le cartelle results e output
 /results/
-/output/
 /data/
