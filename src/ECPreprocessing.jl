@@ -25,7 +25,7 @@ end_users_residential = 3
 start_users_other_uses = 4
 end_users_other_uses = 9
 residential_yearly = fill(2700,end_users_residential)
-residential_yearly_distribution = [0.098,	0.083,0.087,	0.078,	0.075	,0.073,	0.079,	0.078,	0.074	,0.084,	0.088	,0.103]
+residential_yearly_distribution = [0.098,	0.083,0.087, 0.078,	0.075, 0.073, 0.079,	0.078,	0.074	,0.084,	0.088	,0.103]
 other_uses_yearly = fill(3400,end_users_other_uses-start_users_other_uses+1)
 consumption_yearly = vcat(residential_yearly,other_uses_yearly)
 
